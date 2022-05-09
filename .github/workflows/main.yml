@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: $2a2b30b1-0929-4815-9c6e-3db82c48497d
+          heroku_app_name: "karaoke-songbook" #Must be unique in Heroku
+          heroku_email: "raymac@karaokeworld.net"
