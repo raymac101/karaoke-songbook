@@ -1,0 +1,70 @@
+<div class="wholeScreen">
+  <div class="fixedTop">
+    <div class="Header">Karaoke Song Page</div>
+
+    <div *ngIf="isLoading">
+        Loading...
+        <img class="ldld" src="../../assets/Interwind-1s-200px.gif">
+    </div> <!-- is loading -->
+
+    <div *ngIf="!isLoading">
+      <div class="searchbar">
+        <input class="search" id="search_field" type="search" placeholder="Search" [(ngModel)]="searchword" (input)="searchThis()"/>
+      </div>
+      <div class="buttonList">
+        <button type="button" class="button button-text" (click)="getSubSet('0')">#</button>
+        <button type="button" class="button button-text" (click)="getSubSet('A')">A</button>
+        <button type="button" class="button button-text" (click)="getSubSet('B')">B</button>
+        <button type="button" class="button button-text" (click)="getSubSet('C')">C</button>
+        <button type="button" class="button button-text" (click)="getSubSet('D')">D</button>
+        <button type="button" class="button button-text" (click)="getSubSet('E')">E</button>
+        <button type="button" class="button button-text" (click)="getSubSet('F')">F</button>
+        <button type="button" class="button button-text" (click)="getSubSet('G')">G</button>
+        <button type="button" class="button button-text" (click)="getSubSet('H')">H</button>
+        <button type="button" class="button button-text" (click)="getSubSet('I')">I</button>
+        <button type="button" class="button button-text" (click)="getSubSet('J')">J</button>
+        <button type="button" class="button button-text" (click)="getSubSet('K')">K</button>
+        <button type="button" class="button button-text" (click)="getSubSet('L')">L</button>
+        <button type="button" class="button button-text" (click)="getSubSet('M')">M</button>
+        <button type="button" class="button button-text" (click)="getSubSet('N')">N</button>
+        <button type="button" class="button button-text" (click)="getSubSet('O')">O</button>
+        <button type="button" class="button button-text" (click)="getSubSet('P')">P</button>
+        <button type="button" class="button button-text" (click)="getSubSet('Q')">Q</button>
+        <button type="button" class="button button-text" (click)="getSubSet('R')">R</button>
+        <button type="button" class="button button-text" (click)="getSubSet('S')">S</button>
+        <button type="button" class="button button-text" (click)="getSubSet('T')">T</button>
+        <button type="button" class="button button-text" (click)="getSubSet('U')">U</button>
+        <button type="button" class="button button-text" (click)="getSubSet('V')">V</button>
+        <button type="button" class="button button-text" (click)="getSubSet('W')">W</button>
+        <button type="button" class="button button-text" (click)="getSubSet('X')">X</button>
+        <button type="button" class="button button-text" (click)="getSubSet('Y')">Y</button>
+        <button type="button" class="button button-text" (click)="getSubSet('Z')">Z</button>
+      </div> <!-- buttonList -->
+      <div class="titles">
+        <div class="headTitle">SONGS</div>
+        <div class="results">results = {{ results }}</div>
+        <!-- <div class="headArtist">Artist</div> -->
+      </div>
+    </div> <!-- is loading -->
+  </div> <!-- Fixed Top -->
+
+  <div class="bottom">
+    <div *ngIf="!isLoading">
+      <div class="scrollableList" *ngFor="let song of displaySongs;">
+        <div class="title">{{song.title}}</div>
+        <div class="artist">{{song.artist}}</div>
+        <!-- <table id="karaokeSongs" class="table"> -->
+          <!-- <tr class="thead">
+            <th>Song</th>
+            <th>Artist</th>
+          </tr> -->
+  <!--
+          <tr class="tbody" *ngFor="let song of displaySongs; let odd = odd" [ngClass]="{'odd': odd}">
+            <td>{{song.title}}</td>
+            <td>{{song.artist}}</td>
+          </tr> -->
+        <!-- </table> -->
+      </div>
+    </div> <!-- is loading -->
+  </div>
+</div>
